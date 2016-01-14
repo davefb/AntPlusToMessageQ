@@ -14,6 +14,7 @@ All rights reserved.
 // Global ANT parameters
 #define ANTPLUS_NETWORK_NUMBER               ((UCHAR) 0)
 
+///
 /* 
 Redistribution of source code containing the ANT+ Network Key is prohibited.
 The ANT+ Network Key is available to ANT+ Adopters. 
