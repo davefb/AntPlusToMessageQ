@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C54C8D51-0CFA-439B-B2C8-53116000E691}</ProjectGuid>
+    <RootNamespace>ANTPlusSim</RootNamespace>
+    <ProjectName>Ant+TMessageQueue</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>14.0.24720.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(OutDir)$(ProjectName)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(OutDir)$(ProjectName)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>basesim;common;displaysim;devices;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG; SIMULATOR_DISPLAY;REFERENCE_DESIGN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <EmbeddedResource>
+      <LogicalName>$(IntDir)ANTPlusSim.%(Filename).resources</LogicalName>
+    </EmbeddedResource>
+    <Link>
+      <AdditionalDependencies />
+      <AdditionalLibraryDirectories>$(ProjectDir)common;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AssemblyDebug>true</AssemblyDebug>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <TargetMachine>MachineX86</TargetMachine>
+      <CLRThreadAttribute>DefaultThreadingAttribute</CLRThreadAttribute>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(ProjectDir)\common\*.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>basesim;common;displaysim;devices;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG; SIMULATOR_DISPLAY;REFERENCE_DESIGN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(ProjectDir)\common\*.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Data">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.DirectoryServices">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Xml">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="basesim\ANTChannel.cpp" />
+    <ClCompile Include="basesim\ANTClass.cpp" />
+    <ClCompile Include="basesim\MainForm.cpp" />
+    <ClCompile Include="basesim\SimMain.cpp" />
+    <ClCompile Include="basesim\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="common\ant_dll.cpp" />
+    <ClCompile Include="devices\BikeCadenceDisplay.cpp" />
+    <ClCompile Include="devices\BikePowerDisplay.cpp" />
+    <ClCompile Include="devices\BikeSpdCadDisplay.cpp" />
+    <ClCompile Include="devices\BikeSpeedDisplay.cpp" />
+    <ClCompile Include="devices\BikeSpeedDisplayDummy.cpp" />
+    <ClCompile Include="devices\Communication.cpp" />
+    <ClCompile Include="devices\CustomDisplay.cpp" />
+    <ClCompile Include="devices\GeocacheDisplay.cpp" />
+    <ClCompile Include="devices\HRMDisplay.cpp" />
+    <ClCompile Include="devices\LEVDisplay.cpp" />
+    <ClCompile Include="devices\MSMDisplay.cpp" />
+    <ClCompile Include="devices\RacquetDisplay.cpp" />
+    <ClCompile Include="devices\SDMDisplay.cpp" />
+    <ClCompile Include="devices\TemperatureDisplay.cpp" />
+    <ClCompile Include="devices\WeightScaleDisplay.cpp" />
+    <ClCompile Include="displaysim\AssemblyInfo.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="basesim\AboutSim.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="basesim\ANTChannel.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="basesim\ANTClass.h" />
+    <ClInclude Include="basesim\antplus.h" />
+    <ClInclude Include="basesim\MainForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="basesim\SimTypes.h" />
+    <ClInclude Include="basesim\stdafx.h" />
+    <ClInclude Include="common\antdefines.h" />
+    <ClInclude Include="common\antmessage.h" />
+    <ClInclude Include="common\ant_dll.h" />
+    <ClInclude Include="common\types.h" />
+    <ClInclude Include="devices\antplus_bikepower.h" />
+    <ClInclude Include="devices\antplus_common.h" />
+    <ClInclude Include="devices\antplus_control.h" />
+    <ClInclude Include="devices\antPlus_Geocache.h" />
+    <ClInclude Include="devices\antplus_lev.h" />
+    <ClInclude Include="devices\antPlus_MSM.h" />
+    <ClInclude Include="devices\antplus_racquet.h" />
+    <ClInclude Include="devices\antplus_weight.h" />
+    <ClInclude Include="devices\bc.h" />
+    <ClInclude Include="devices\BikeCadenceDisplay.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\BikePowerDisplay.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\BikeSpdCadDisplay.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\BikeSpeedDisplay.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\BikeSpeedDisplayDummy.h" />
+    <ClInclude Include="devices\bs.h" />
+    <ClInclude Include="devices\bsc.h" />
+    <ClInclude Include="devices\Communication.h" />
+    <ClInclude Include="devices\custom.h" />
+    <ClInclude Include="devices\CustomDisplay.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\GeocacheDisplay.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\hrm.h" />
+    <ClInclude Include="devices\HRMDisplay.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\ISimBase.h" />
+    <ClInclude Include="devices\LEVDisplay.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\MSMDisplay.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\RacquetDisplay.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\sdm.h" />
+    <ClInclude Include="devices\SDMDisplay.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\TemperatureDisplay.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\WeightScaleDisplay.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="displaysim\config.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="basesim\antplus.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="basesim\app.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="basesim\AboutSim.resx">
+      <DependentUpon>basesim\AboutSim.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="basesim\ANTChannel.resx">
+      <DependentUpon>basesim\ANTChannel.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="basesim\MainForm.resX">
+      <DependentUpon>basesim\MainForm.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\BikeCadenceDisplay.resx">
+      <DependentUpon>devices\BikeCadenceDisplay.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\BikePowerDisplay.resx">
+      <DependentUpon>devices\BikePowerDisplay.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\BikeSpdCadDisplay.resx">
+      <DependentUpon>devices\BikeSpdCadDisplay.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\BikeSpeedDisplay.resx">
+      <DependentUpon>devices\BikeSpeedDisplay.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\BikeSpeedDisplayDummy.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\CustomDisplay.resx">
+      <DependentUpon>devices\CustomDisplay.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\GeocacheDisplay.resx">
+      <DependentUpon>devices\GeocacheDisplay.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\HRMDisplay.resx">
+      <DependentUpon>devices\HRMDisplay.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\LEVDisplay.resx">
+      <DependentUpon>devices\LEVDisplay.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\MSMDisplay.resx">
+      <DependentUpon>devices\MSMDisplay.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\RacquetDisplay.resx">
+      <DependentUpon>devices\RacquetDisplay.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\SDMDisplay.resx">
+      <DependentUpon>devices\SDMDisplay.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\TemperatureDisplay.resx">
+      <DependentUpon>devices\TemperatureDisplay.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\WeightScaleDisplay.resx">
+      <DependentUpon>devices\WeightScaleDisplay.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

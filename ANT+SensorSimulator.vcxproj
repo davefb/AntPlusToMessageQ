@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DFD76A38-70B5-4AD9-AEA0-28F45AEA12AE}</ProjectGuid>
+    <RootNamespace>ANTPlusSim</RootNamespace>
+    <Keyword>ManagedCProj</Keyword>
+    <ProjectName>Ant+2MessageQueue</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>14.0.24720.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(OutDir)$(ProjectName)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(OutDir)$(ProjectName)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>basesim;common;sensorsim;devices;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG; SIMULATOR_SENSOR;REFERENCE_DESIGN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <EmbeddedResource>
+      <LogicalName>$(IntDir)ANTPlusSim.%(Filename).resources</LogicalName>
+    </EmbeddedResource>
+    <Link>
+      <AdditionalDependencies />
+      <AdditionalLibraryDirectories>$(ProjectDir)common;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AssemblyDebug>true</AssemblyDebug>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <TargetMachine>MachineX86</TargetMachine>
+      <CLRThreadAttribute>DefaultThreadingAttribute</CLRThreadAttribute>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(ProjectDir)\common\*.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>basesim;common;sensorsim;devices;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG; SIMULATOR_SENSOR;REFERENCE_DESIGN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(ProjectDir)\common\*.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Data">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Xml">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="basesim\ANTChannel.cpp" />
+    <ClCompile Include="basesim\ANTClass.cpp" />
+    <ClCompile Include="basesim\MainForm.cpp" />
+    <ClCompile Include="basesim\SimMain.cpp" />
+    <ClCompile Include="basesim\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="common\ant_dll.cpp" />
+    <ClCompile Include="devices\BikeCadenceSensor.cpp" />
+    <ClCompile Include="devices\BikePowerSensor.cpp" />
+    <ClCompile Include="devices\BikeSpdCadSensor.cpp" />
+    <ClCompile Include="devices\BikeSpeedSensor.cpp" />
+    <ClCompile Include="devices\CustomSensor.cpp" />
+    <ClCompile Include="devices\GeocacheSensor.cpp" />
+    <ClCompile Include="devices\HRMSensor.cpp" />
+    <ClCompile Include="devices\LEVSensor.cpp" />
+    <ClCompile Include="devices\MSMSensor.cpp" />
+    <ClCompile Include="devices\RacquetSensor.cpp" />
+    <ClCompile Include="devices\SDMSensor.cpp" />
+    <ClCompile Include="devices\TemperatureSensor.cpp" />
+    <ClCompile Include="devices\WeightScaleSensor.cpp" />
+    <ClCompile Include="sensorsim\AssemblyInfo.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="basesim\AboutSim.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="basesim\ANTChannel.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="basesim\ANTClass.h" />
+    <ClInclude Include="basesim\antplus.h" />
+    <ClInclude Include="basesim\MainForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="basesim\SimTypes.h" />
+    <CustomBuild Include="basesim\stdafx.h" />
+    <ClInclude Include="common\antdefines.h" />
+    <ClInclude Include="common\antmessage.h" />
+    <ClInclude Include="common\ant_dll.h" />
+    <ClInclude Include="common\types.h" />
+    <ClInclude Include="devices\antplus_bikepower.h" />
+    <ClInclude Include="devices\antplus_common.h" />
+    <ClInclude Include="devices\antPlus_Geocache.h" />
+    <ClInclude Include="devices\antplus_lev.h" />
+    <ClInclude Include="devices\antPlus_MSM.h" />
+    <ClInclude Include="devices\antplus_racquet.h" />
+    <ClInclude Include="devices\antplus_temperature.h" />
+    <ClInclude Include="devices\antplus_weight.h" />
+    <ClInclude Include="devices\bc.h" />
+    <ClInclude Include="devices\BikeCadenceSensor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\BikePowerSensor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\BikeSpdCadSensor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\BikeSpeedSensor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\bs.h" />
+    <ClInclude Include="devices\bsc.h" />
+    <ClInclude Include="devices\custom.h" />
+    <ClInclude Include="devices\CustomSensor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\GeocacheSensor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\hrm.h" />
+    <ClInclude Include="devices\HRMSensor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\ISimBase.h" />
+    <ClInclude Include="devices\LEVSensor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\MSMSensor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\RacquetSensor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\sdm.h" />
+    <ClInclude Include="devices\SDMSensor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\TemperatureSensor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="devices\WeightScaleSensor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="sensorsim\config.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="basesim\antplus.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="basesim\app.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="basesim\AboutSim.resx">
+      <DependentUpon>basesim\AboutSim.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="basesim\ANTChannel.resx">
+      <DependentUpon>basesim\ANTChannel.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="basesim\MainForm.resX">
+      <DependentUpon>basesim\MainForm.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\BikeCadenceSensor.resx">
+      <DependentUpon>devices\BikeCadenceSensor.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\BikePowerSensor.resx">
+      <DependentUpon>devices\BikePowerSensor.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\BikeSpdCadSensor.resx">
+      <DependentUpon>devices\BikeSpdCadSensor.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\BikeSpeedSensor.resx">
+      <DependentUpon>devices\BikeSpeedSensor.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\CustomSensor.resx">
+      <DependentUpon>devices\CustomSensor.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\GeocacheSensor.resx">
+      <DependentUpon>devices\GeocacheSensor.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\HRMSensor.resx">
+      <DependentUpon>devices\HRMSensor.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\LEVSensor.resx">
+      <DependentUpon>devices\LEVSensor.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\MSMSensor.resx">
+      <DependentUpon>devices\MSMSensor.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\RacquetSensor.resx">
+      <DependentUpon>devices\RacquetSensor.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\SDMSensor.resx">
+      <DependentUpon>devices\SDMSensor.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\TemperatureSensor.resx">
+      <DependentUpon>devices\TemperatureSensor.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="devices\WeightScaleSensor.resx">
+      <DependentUpon>devices\WeightScaleSensor.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
